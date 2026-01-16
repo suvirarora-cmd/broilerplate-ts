@@ -30,9 +30,11 @@ export async function apiClient<TResponse,TBody=undefined>(
         try{
             const data=await res.json();
             message=data?.message??message;
-        } catch{}
+        } catch{
 
-        throw createApiError(res.status,message);
+            throw createApiError(res.status,message);
+        }
+
     }
     return res.json() as Promise<TResponse>;
 }
