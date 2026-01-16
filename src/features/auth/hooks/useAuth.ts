@@ -1,11 +1,11 @@
 // src/features/auth/hooks/useAuth.ts
 import { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { authApi } from "./api";
-import { loginSuccess, logout as logoutAction } from "./slice";
-import { selectIsAuthenticated } from "./selectors";
-import type { LoginRequest } from "./types";
-import { normalizeError,handleError } from "../../services/errorHandler";
+import { authApi } from "../api";
+import { loginSuccess, logout as logoutAction } from "../../../store/authSlice";
+import { selectIsAuthenticated } from "../selectors";
+import type { LoginRequest } from "../types";
+import { normalizeError,handleError } from "../../../error/errorHandler";
 
 export function useAuth() {
   const dispatch = useDispatch();

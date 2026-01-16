@@ -1,5 +1,5 @@
 import type { Validator } from "../types/validator";
-import { createApiError } from "./errorHandler";
+import { createApiError } from "../error/errorHandler";
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
