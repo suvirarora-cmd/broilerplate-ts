@@ -1,11 +1,5 @@
 import type { Validator } from "../types/validator";
-
-
-export interface ApiError{
-    message:string;
-    status?:number;
-}
-
+import { createApiError } from "./errorHandler";
 interface ApiOptions<T>{
     method?:"GET"| "POST"|"PUT"|"DELETE";
     body?:T;
