@@ -5,6 +5,7 @@ import { authApi } from "./api";
 import { loginSuccess, logout as logoutAction } from "./slice";
 import { selectIsAuthenticated } from "./selectors";
 import type { LoginRequest } from "./types";
+import { normalizeError,handleError } from "../../services/errorHandler";
 
 export function useAuth() {
   const dispatch = useDispatch();
@@ -14,21 +15,24 @@ export function useAuth() {
   const [error, setError] = useState<string | null>(null);
 
   const login = useCallback(async (data: LoginRequest) => {
-    try {
-      setLoading(true);
-      setError(null);
+    setLoading(true);
+    setError(null);
 
+    try {
+      
       const response = await authApi.login(data);
 
       // update global auth state
       dispatch(loginSuccess(response.token));
 
       return response;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (err: any) {
-      const message = err?.message || "Login failed";
-      setError(message);
-      throw err;
+
+    } catch (err) {
+      const appError=normalizeError(err);
+      handleError(appError)
+      setError(appError.message)
+
+      throw appError;
     } finally {
       setLoading(false);
     }
