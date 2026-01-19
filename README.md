@@ -1,38 +1,30 @@
 # Broilerplate Documentation
 
-1. API Layer 
+1. API Layer (DONE)
    
   UI gets coupled to backend
   Central API client
   Typed request/response
 
-2. Runtime API Response Validator
+2. Runtime API Response Validator (DONE)
    
    Backend bugs Happen
    APIs evolve
    TypeScript does NOT validate runtime data
 
-3. Utility Hooks
-
-4. Protected Routes
-
-  Logged-in Pages
-  Public pages
-  Role-Based Access
-
-5. Error Boundaries
+3. Error Boundaries(DONE)
 
    JS errors
    UNdefined data
    Unexpected API responses
 
-6. Testing Setup
+4. Testing Setup(DONE)
 
    Test Runner(Vitest)
    ONe exmaple test
    React Testing Library
 
-7. CI configuration 
+5. CI configuration (DONE)
   
    It ensures:
     code builds
