@@ -1,5 +1,5 @@
 export interface LoginRequest{
-    emaill:string;
+    email:string;
     password:string;
 }
 

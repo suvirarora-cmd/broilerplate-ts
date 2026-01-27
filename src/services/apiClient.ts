@@ -1,13 +1,9 @@
 import type { Validator } from "../types/validator";
 import { createApiError } from "../error/errorHandler";
 import { logger } from "./logger";
+import type { ApiOptions } from "../types/api";
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-interface ApiOptions<T>{
-    method?:"GET"| "POST"|"PUT"|"DELETE";
-    body?:T;
-    headers?:Record<string,string>;
-}
 
 export async function apiClient<TResponse,TBody=undefined>(
     endpoint:string,
